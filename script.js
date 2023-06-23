@@ -19,9 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       selectedTiles.push(tile);
       tileButton.classList.add('highlighted');
+      playSoundEffect();
     }
-
-    playSoundEffect();
   }
 
   function playSoundEffect() {
