@@ -25,7 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function playSoundEffect() {
-    var soundEffectIndex = Math.floor(currentSoundEffectIndex / 3);
+    if (selectedTiles.length === 0) {
+      return;
+    }
+
+    var soundEffectIndex = Math.floor((selectedTiles.length - 1) / 3);
     if (soundEffectIndex >= soundEffects.length) {
       soundEffectIndex = soundEffects.length - 1;
     }
@@ -34,8 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
     audio.play().catch(function(error) {
       console.log('Error playing sound:', error);
     });
-
-    currentSoundEffectIndex++;
   }
 
   function rollDice() {
