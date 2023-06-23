@@ -4,7 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var selectedTiles = [];
   var soundEffects = [
     'https://s10.krakenfiles.com/uploads/23-06-2023/VZL5JaGwTs/music.m4a',
+    'https://s10.krakenfiles.com/uploads/23-06-2023/VZL5JaGwTs/music.m4a',
     'https://s10.krakenfiles.com/uploads/23-06-2023/700PP165iF/music.m4a',
+    'https://s10.krakenfiles.com/uploads/23-06-2023/700PP165iF/music.m4a',
+    'https://s10.krakenfiles.com/uploads/23-06-2023/ryNQol7q6u/music.m4a',
     'https://s10.krakenfiles.com/uploads/23-06-2023/ryNQol7q6u/music.m4a'
   ];
   var currentSoundEffectIndex = 0;
