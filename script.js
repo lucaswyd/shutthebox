@@ -19,12 +19,13 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       selectedTiles.push(tile);
       tileButton.classList.add('highlighted');
-      playSoundEffect();
     }
+
+    playSoundEffect();
   }
 
   function playSoundEffect() {
-    var soundEffectIndex = Math.floor(selectedTiles.length / 3);
+    var soundEffectIndex = Math.floor(currentSoundEffectIndex / 3);
     if (soundEffectIndex >= soundEffects.length) {
       soundEffectIndex = soundEffects.length - 1;
     }
@@ -33,6 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
     audio.play().catch(function(error) {
       console.log('Error playing sound:', error);
     });
+
+    currentSoundEffectIndex++;
   }
 
   function rollDice() {
