@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function playSoundEffect() {
-    var audio = new Audio(soundEffects[Math.floor(Math.random() * soundEffects.length)]);
+    var soundIndex = Math.floor((selectedTiles.length - 1) / 3) % soundEffects.length;
+    var audio = new Audio(soundEffects[soundIndex]);
     audio.play().catch(function(error) {
       console.log('Error playing sound:', error);
     });
