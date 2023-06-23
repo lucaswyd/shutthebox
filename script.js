@@ -4,13 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var selectedTiles = [];
   var soundEffects = [
     'https://s10.krakenfiles.com/uploads/23-06-2023/VZL5JaGwTs/music.m4a',
-    'https://s10.krakenfiles.com/uploads/23-06-2023/VZL5JaGwTs/music.m4a',
-    'https://s10.krakenfiles.com/uploads/23-06-2023/VZL5JaGwTs/music.m4a',
     'https://s10.krakenfiles.com/uploads/23-06-2023/700PP165iF/music.m4a',
-    'https://s10.krakenfiles.com/uploads/23-06-2023/700PP165iF/music.m4a',
-    'https://s10.krakenfiles.com/uploads/23-06-2023/700PP165iF/music.m4a',
-    'https://s10.krakenfiles.com/uploads/23-06-2023/ryNQol7q6u/music.m4a',
-    'https://s10.krakenfiles.com/uploads/23-06-2023/ryNQol7q6u/music.m4a',
     'https://s10.krakenfiles.com/uploads/23-06-2023/ryNQol7q6u/music.m4a'
   ];
   var currentSoundEffectIndex = 0;
@@ -31,12 +25,12 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function playSoundEffect() {
-    var audio = new Audio(soundEffects[currentSoundEffectIndex]);
+    var audio = new Audio(soundEffects[Math.floor(currentSoundEffectIndex / 3)]);
     audio.play().catch(function(error) {
       console.log('Error playing sound:', error);
     });
 
-    currentSoundEffectIndex = (currentSoundEffectIndex + 1) % soundEffects.length;
+    currentSoundEffectIndex = (currentSoundEffectIndex + 1) % (soundEffects.length * 3);
   }
 
   function rollDice() {
