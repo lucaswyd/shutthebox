@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
     'https://s10.krakenfiles.com/uploads/23-06-2023/VZL5JaGwTs/music.m4a',
     'https://s10.krakenfiles.com/uploads/23-06-2023/700PP165iF/music.m4a',
     'https://s10.krakenfiles.com/uploads/23-06-2023/ryNQol7q6u/music.m4a'
+ document.addEventListener('DOMContentLoaded', function() {
+  var tiles = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  var dice = [0, 0];
+  var selectedTiles = [];
+  var soundEffects = [
+    'https://s10.krakenfiles.com/uploads/23-06-2023/VZL5JaGwTs/music.m4a',
+    'https://s10.krakenfiles.com/uploads/23-06-2023/700PP165iF/music.m4a',
+    'https://s10.krakenfiles.com/uploads/23-06-2023/ryNQol7q6u/music.m4a'
   ];
   var currentSoundEffectIndex = 0;
   var audio = new Audio(soundEffects[currentSoundEffectIndex]);
@@ -26,15 +34,19 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function playSoundEffect() {
-  if (audio.paused || audio.ended) {
-    audio.currentTime = 0;
-    audio.src = soundEffects[currentSoundEffectIndex]; // Set the source before playing
-    audio.play().catch(function(error) {
-      console.log('Error playing sound:', error);
-    });
-    currentSoundEffectIndex = (currentSoundEffectIndex + 1) % soundEffects.length;
+    if (audio.paused || audio.ended) {
+      audio.currentTime = 0;
+      audio.pause(); // Pause the current audio if it's playing
+      setTimeout(function() {
+        audio.src = soundEffects[currentSoundEffectIndex]; // Set the source after a delay
+        audio.play().catch(function(error) {
+          console.log('Error playing sound:', error);
+        });
+        currentSoundEffectIndex = (currentSoundEffectIndex + 1) % soundEffects.length;
+      }, 100); // Delay in milliseconds
+    }
   }
-}
+});
 
   function rollDice() {
     disableRollButton();
