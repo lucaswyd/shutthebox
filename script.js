@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     'https://s10.krakenfiles.com/uploads/23-06-2023/700PP165iF/music.m4a',
     'https://s10.krakenfiles.com/uploads/23-06-2023/ryNQol7q6u/music.m4a'
   ];
+  var currentSoundEffectIndex = 0;
 
   function toggleTile(tile) {
     var tileButton = document.getElementById('tile' + tile);
@@ -24,11 +25,12 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function playSoundEffect() {
-    var soundIndex = Math.floor((selectedTiles.length - 1) / 3) % soundEffects.length;
-    var audio = new Audio(soundEffects[soundIndex]);
+    var audio = new Audio(soundEffects[currentSoundEffectIndex]);
     audio.play().catch(function(error) {
       console.log('Error playing sound:', error);
     });
+
+    currentSoundEffectIndex = (currentSoundEffectIndex + 1) % soundEffects.length;
   }
 
   function rollDice() {
@@ -104,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
     dice = [0, 0];
     var diceContainer = document.getElementById('diceContainer');
     diceContainer.innerHTML = '';
+    currentSoundEffectIndex = 0;
   }
 
 });
