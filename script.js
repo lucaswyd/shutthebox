@@ -26,15 +26,15 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function playSoundEffect() {
-    if (audio.paused || audio.ended) {
-      audio.currentTime = 0;
-      audio.play().catch(function(error) {
-        console.log('Error playing sound:', error);
-      });
-      currentSoundEffectIndex = (currentSoundEffectIndex + 1) % soundEffects.length;
-      audio.src = soundEffects[currentSoundEffectIndex];
-    }
+  if (audio.paused || audio.ended) {
+    audio.currentTime = 0;
+    audio.src = soundEffects[currentSoundEffectIndex]; // Set the source before playing
+    audio.play().catch(function(error) {
+      console.log('Error playing sound:', error);
+    });
+    currentSoundEffectIndex = (currentSoundEffectIndex + 1) % soundEffects.length;
   }
+}
 
   function rollDice() {
     disableRollButton();
