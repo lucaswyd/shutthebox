@@ -24,12 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function playSoundEffect() {
-    var audio = new Audio(soundEffects[Math.floor(currentSoundEffectIndex / 3)]);
-    audio.play().catch(function(error) {
-      console.log('Error playing sound:', error);
-    });
+    if (selectedTiles.length <= 3) {
+      var audio = new Audio(soundEffects[Math.floor(currentSoundEffectIndex / 3)]);
+      audio.play().catch(function(error) {
+        console.log('Error playing sound:', error);
+      });
 
-    currentSoundEffectIndex = (currentSoundEffectIndex + 1) % (soundEffects.length * 3);
+      currentSoundEffectIndex = (currentSoundEffectIndex + 1) % (soundEffects.length * 3);
+    }
   }
 
   function rollDice() {
@@ -107,4 +109,5 @@ document.addEventListener('DOMContentLoaded', function() {
     diceContainer.innerHTML = '';
     currentSoundEffectIndex = 0;
   }
+
 });
