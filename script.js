@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var dice = [0, 0];
   var selectedTiles = [];
   var soundEffects = [
-    'https://github.com/lucaswyd/shutthebox/raw/main/stakeMines3.wav',
-    'https://github.com/lucaswyd/shutthebox/raw/main/stakeMines3.wav',
-    'https://github.com/lucaswyd/shutthebox/raw/main/stakeMines3.wav'
+    'https://github.com/lucaswyd/shutthebox/blob/main/stakeMines1.wav',
+    'https://github.com/lucaswyd/shutthebox/blob/main/stakeMines2.wav',
+    'https://dl.sndup.net/bggn/stakeMines3.wav'
   ];
   var currentSoundEffectIndex = 0;
   var audio = new Audio(soundEffects[currentSoundEffectIndex]);
