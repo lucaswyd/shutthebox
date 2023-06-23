@@ -25,12 +25,15 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function playSoundEffect() {
-    var audio = new Audio(soundEffects[Math.floor(currentSoundEffectIndex / 3)]);
+    var soundEffectIndex = Math.floor(selectedTiles.length / 3);
+    if (soundEffectIndex >= soundEffects.length) {
+      soundEffectIndex = soundEffects.length - 1;
+    }
+
+    var audio = new Audio(soundEffects[soundEffectIndex]);
     audio.play().catch(function(error) {
       console.log('Error playing sound:', error);
     });
-
-    currentSoundEffectIndex = (currentSoundEffectIndex + 1) % (soundEffects.length * 3);
   }
 
   function rollDice() {
